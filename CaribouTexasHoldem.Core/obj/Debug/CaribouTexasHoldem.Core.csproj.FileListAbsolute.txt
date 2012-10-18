@@ -1,0 +1,5 @@
+C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core\bin\Debug\CaribouTexasHoldem.Core.dll
+C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core\bin\Debug\CaribouTexasHoldem.Core.pdb
+C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core\obj\Debug\CaribouTexasHoldem.Core.csprojResolveAssemblyReference.cache
+C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core\obj\Debug\CaribouTexasHoldem.Core.dll
+C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core\obj\Debug\CaribouTexasHoldem.Core.pdb
