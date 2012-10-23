@@ -8,7 +8,7 @@ namespace CaribouTexasHoldem.Core
 {
     public class TexasHoldemGame
     {
-        private TexasHoldemGameSettings _settings;
+        private GameSettings _settings;
 
         public List<Player> Players
         {
@@ -23,7 +23,7 @@ namespace CaribouTexasHoldem.Core
         {
         }
 
-        public TexasHoldemGame(TexasHoldemGameSettings settings)
+        public TexasHoldemGame(GameSettings settings)
         {
             settings = _settings;
             Seats = new List<Chair>();

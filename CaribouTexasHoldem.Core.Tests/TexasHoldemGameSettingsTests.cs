@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using CaribouTexasHoldem.Core;
 
 namespace CaribouTexasHoldem.Core.Tests
 {
@@ -35,7 +32,7 @@ namespace CaribouTexasHoldem.Core.Tests
         public void WhenBigBlindIsNotSet()
         {
             // Arrange
-            var gameSettings = new TexasHoldemGameSettings();
+            var gameSettings = new GameSettings();
 
             // Act
             var bigBlind = gameSettings.BigBlind;
@@ -49,7 +46,7 @@ namespace CaribouTexasHoldem.Core.Tests
         public void WhenBigBlindIsSetToEvenPostiveNumber()
         {
             // Arrange
-            var gameSettings = new TexasHoldemGameSettings
+            var gameSettings = new GameSettings
             {
                 NumOfPlayers = 9, 
                 BigBlind = 1000
@@ -66,7 +63,7 @@ namespace CaribouTexasHoldem.Core.Tests
         public void WhenMaxBuyInIsNotSet()
         {
             // Arrange
-            var gameSettings = new TexasHoldemGameSettings();
+            var gameSettings = new GameSettings();
 
             // Act
             var maxBuyIn = gameSettings.MaxBuyIn;
@@ -80,7 +77,7 @@ namespace CaribouTexasHoldem.Core.Tests
         public void WhenMinBuyInIsNotSet()
         {
             // Arrange
-            var gameSettings = new TexasHoldemGameSettings();
+            var gameSettings = new GameSettings();
 
             // Act
             var minBuyIn = gameSettings.MinBuyIn;
@@ -96,59 +93,56 @@ namespace CaribouTexasHoldem.Core.Tests
         [ExpectedException(typeof (ArgumentException))]
         public void WhenBigBlindIsSetToOddNumber()
         {
-            // Arrange, Act, Assert
-            var gameSettings = new TexasHoldemGameSettings { BigBlind = 99 };
+            new GameSettings { BigBlind = 99 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenBigBlindIsSetToIsZero()
         {
-            var gameSettings = new TexasHoldemGameSettings { BigBlind = 0 };
+            new GameSettings { BigBlind = 0 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenBigBlindIsSetToNegativeNumber()
         {
-            var gameSettings = new TexasHoldemGameSettings { BigBlind = -1000 };
+            new GameSettings { BigBlind = -1000 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenMaxBuyInIsSetToOddNumber()
         {
-            // Arrange
-            var gameSettings = new TexasHoldemGameSettings { MaxBuyIn = 99 };
+            new GameSettings { MaxBuyIn = 99 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenMaxBuyInIsSetToZero()
         {
-            // Arrange
-            var gameSettings = new TexasHoldemGameSettings { MaxBuyIn = 0 };
+            new GameSettings { MaxBuyIn = 0 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenMaxBuyInIsSetToNegativeNumber()
         {
-            var gameSettings = new TexasHoldemGameSettings { MaxBuyIn = -10000 };
+            new GameSettings { MaxBuyIn = -10000 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenMinBuyInIsSetToNegNumber()
         {
-            var gameSettings = new TexasHoldemGameSettings { MinBuyIn = -1000 };
+            new GameSettings { MinBuyIn = -1000 };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WhenMinBuyInIsSetToZero()
         {
-            var gameSettings = new TexasHoldemGameSettings { MinBuyIn = 0 };
+            new GameSettings { MinBuyIn = 0 };
         }
     }
 
