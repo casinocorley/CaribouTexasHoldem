@@ -71,9 +71,6 @@ namespace CaribouTexasHoldem.Core
 
             Check.IsNotNegative
                 (maxBuyIn, "Max Buy-in cannot be less than zero");
-
-            Check.IsNotOdd
-                (maxBuyIn, "Max Buy-in cannot be an odd number");
         }
 
         private void CheckMinBuyIn(int minBuyIn)
@@ -84,7 +81,7 @@ namespace CaribouTexasHoldem.Core
             Check.IsNotNegative
                 (minBuyIn, "Min Buy-in cannot be less than zero");
         }
-
+		
         private int _bigBlind;
         private int _maxBuyIn;
         private int _minBuyIn;

@@ -8,22 +8,24 @@ namespace CaribouTexasHoldem.Core.Tests
     {
         public void WhiteBoard()
         {
-            /* 1. Texas Holdem game is created
-             * 1. Player join table (dealer and cards)
-             * 2. Player get a seat (position)
-             * 3. Player buy in
-             * 4. 2 x Cards are dealt each player, player can see their own card
-             * 5. Blinds are placed
-             * 6. Betting (folding) 
-             * 7. Flop
-             * 8. Betting
-             * 9. Turn
-             * 10. Betting
-             * 11. River
-             * 12. Betting
-             * 13. Determine winner
-             * 14. Payout
+            /*  1. Create Texas Holdem game
+			 *		Big Blind, Small Blind, num of players, Max and Min
+             *  2. Player join table (dealer and cards)
+             *  3. Player get a seat (position)
+             *  4. Player buy in
+             *  5. 2 x Cards are dealt each player, player can see their own card
+             *  6. Blinds are placed
+             *  7. Betting (folding) 
+             *  8. Flop
+             *  9. Betting
+             * 10. Turn
+             * 11. Betting
+             * 12. River
+             * 13. Betting
+             * 14. Determine winner
+             * 15. Payout
              */
+			var game = new TexasHoldemGame(new GameSettings());
         }
 
         // Happy Path
@@ -39,7 +41,6 @@ namespace CaribouTexasHoldem.Core.Tests
 
             // Assert
             Assert.IsTrue(bigBlind > 0, "Big Blind should be greater zero");
-            Assert.IsTrue(bigBlind % 2 == 0, "Big Blind should be an even number");
         }
 
         [TestMethod]
@@ -48,7 +49,6 @@ namespace CaribouTexasHoldem.Core.Tests
             // Arrange
             var gameSettings = new GameSettings
             {
-                NumOfPlayers = 9, 
                 BigBlind = 1000
             };
 
