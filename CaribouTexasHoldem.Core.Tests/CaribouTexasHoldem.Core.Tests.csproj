@@ -50,8 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="CheckTests.cs" />
+    <Compile Include="TexasHoldemGameSettingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CaribouTexasHoldem.Core\CaribouTexasHoldem.Core.csproj">
+      <Project>{918294aa-0fc8-4643-9467-132ab369041c}</Project>
+      <Name>CaribouTexasHoldem.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
