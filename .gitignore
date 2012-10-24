@@ -1,10 +1,7 @@
-
 *.dll
-
 *.pdb
-
 *.cache
-
 .DS_Store
-
 *.pdb
+debug/
+obj/
