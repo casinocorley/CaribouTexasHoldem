@@ -51,8 +51,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CheckTests.cs" />
-    <Compile Include="TexasHoldemGameSettingsTests.cs" />
+    <Compile Include="GameSettingsTests\BigBlindTests.cs" />
+    <Compile Include="GameSettingsTests\MaxBuyInTests.cs" />
+    <Compile Include="GameSettingsTests\MinBuyInTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhiteBoard.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CaribouTexasHoldem.Core\CaribouTexasHoldem.Core.csproj">

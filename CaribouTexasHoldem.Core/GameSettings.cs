@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public class GameSettings
+    public class CommonGameSettings
     {
-        public GameSettings()
+        public CommonGameSettings()
         {
             // Set Defaults
             NumOfPlayers = 9;
