@@ -19,7 +19,6 @@ namespace CaribouTexasHoldem.Core.Tests.GameSettingsTests
 
             // Assert
             Assert.IsTrue(maxBuyIn > 0, "Max Buy-in should be greater than zero");
-            Assert.IsTrue(maxBuyIn % 2 == 0, "Max Buy-in should be even");
         }
 
         [TestMethod]

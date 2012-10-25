@@ -33,8 +33,8 @@ namespace CaribouTexasHoldem.Core.Tests.GameSettingsTests
             var minBuyIn999 = gameSettings999.MinBuyIn;
 
             // Assert
-            Assert.AreEqual(1000, minBuyIn1000, "Max Buyin for 1000 should not have changed");
-            Assert.AreEqual(999, minBuyIn999, "Max Buyin for 999 should not have changed");
+            Assert.AreEqual(1000, minBuyIn1000, "Min Buyin for 1000 should not have changed");
+            Assert.AreEqual(999, minBuyIn999, "Min Buyin for 999 should not have changed");
         }
 
         // Unhappy Path

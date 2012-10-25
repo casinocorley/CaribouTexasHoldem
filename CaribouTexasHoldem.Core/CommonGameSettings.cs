@@ -6,18 +6,31 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public class CommonGameSettings
+    public class CommonGameSettings : IGameSettings
     {
         public CommonGameSettings()
         {
             // Set Defaults
-            NumOfPlayers = 9;
+            NumOfSeats = 9;
             BigBlind = 1000;
             MaxBuyIn = 200000;
             MinBuyIn = 40000;
         }
 
-        public int NumOfPlayers { get; set; }
+        public int NumOfSeats
+        {
+            get { return _numOfSeats; }
+            set
+            {
+                if (value >= 23)
+                    throw new ArgumentOutOfRangeException("Number of seats cannot be set to this value because of the number of cars");
+
+                if(value <= 1)
+                    throw new ArgumentOutOfRangeException("Need at least 2 seats to play");
+
+                _numOfSeats = value;
+            }
+        }
 
         public int BigBlind 
         {
@@ -81,7 +94,8 @@ namespace CaribouTexasHoldem.Core
             Check.IsNotNegative
                 (minBuyIn, "Min Buy-in cannot be less than zero");
         }
-		
+
+        private int _numOfSeats;
         private int _bigBlind;
         private int _maxBuyIn;
         private int _minBuyIn;

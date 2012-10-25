@@ -4,24 +4,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace CaribouTexasHoldem.Core.Tests.CommonGameSettingsTests
 {
     [TestClass]
-    public class OurFirstTests
-    {
-        [TestMethod]
-        public void Test1()
-        {
-            // Arrange
-            var gameSettings = new CommonGameSettings();
-
-            // Act
-            var bigBlind = gameSettings.BigBlind;
-
-            // Assert
-            Assert.IsTrue(bigBlind > 0, "Big Blind should be greater zero");
-            Assert.IsTrue(bigBlind >= 2, "Big Blind should be greater two");
-        }
-    }
-
-    [TestClass]
     public class BigBlindTests
     {
         // Happy Path
@@ -55,6 +37,7 @@ namespace CaribouTexasHoldem.Core.Tests.CommonGameSettingsTests
             // Assert
             Assert.AreEqual(500, littleBlind, "Little blind should be half of the Big Blind");
         }
+
 
         // Unhappy Path
 

@@ -5,3 +5,10 @@
 *.pdb
 debug/
 obj/
+
+*.dat
+
+*.crc
+
+*.version
+

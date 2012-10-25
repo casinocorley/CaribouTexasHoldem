@@ -54,6 +54,8 @@
     <Compile Include="GameSettingsTests\BigBlindTests.cs" />
     <Compile Include="GameSettingsTests\MaxBuyInTests.cs" />
     <Compile Include="GameSettingsTests\MinBuyInTests.cs" />
+    <Compile Include="GameSettingsTests\NumOfSeatsTests.cs" />
+    <Compile Include="TexasHoldemGameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhiteBoard.cs" />
   </ItemGroup>
