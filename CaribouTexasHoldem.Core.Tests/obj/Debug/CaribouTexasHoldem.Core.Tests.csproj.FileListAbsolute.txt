@@ -1,5 +1,0 @@
-C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core.Tests\obj\Debug\CaribouTexasHoldem.Core.Tests.csprojResolveAssemblyReference.cache
-C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core.Tests\bin\Debug\CaribouTexasHoldem.Core.Tests.dll
-C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core.Tests\bin\Debug\CaribouTexasHoldem.Core.Tests.pdb
-C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core.Tests\obj\Debug\CaribouTexasHoldem.Core.Tests.dll
-C:\Users\casinocorley\Documents\My Web Sites\CaribouTexasHoldem\CaribouTexasHoldem.Core.Tests\obj\Debug\CaribouTexasHoldem.Core.Tests.pdb
