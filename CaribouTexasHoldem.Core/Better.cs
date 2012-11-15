@@ -10,6 +10,7 @@ namespace CaribouTexasHoldem.Core
     {
         public Player Player { get; set; }
         public int Bet { get; set; }
+        public bool HasFolded { get; set; }
 
     }
 }
