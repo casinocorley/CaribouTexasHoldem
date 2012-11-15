@@ -25,6 +25,8 @@ namespace CaribouTexasHoldem.Core
         private List<Better> AskForBets(List<Player> PlayersAtTable)
         {
             RoundOfBets.Clear();
+
+            // Need to rewrite so that Round of Bets is checked before the player bets
             while (RoundOfBetsComplete)
             {
                 PlayersAtTable.ForEach(p => RoundOfBets.Add(PlayersBet(p)));
