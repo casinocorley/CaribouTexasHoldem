@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    class Winner
+    public class Winner
     {
         public Player Player { get; set; }
         public int Winnings { get; set; }
