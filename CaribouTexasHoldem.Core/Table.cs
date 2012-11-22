@@ -6,8 +6,57 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public class Table
+    class Table
     {
-		public List<Seat> Seats { get; set; }
+        public Outcome GameOutCome { get; set; }
+        public List<Better> RoundOfBets { get; set; }
+        public bool RoundOfBetsComplete { get; set; }
+        public List<Better> Pot { get; set; }
+        public Better LastRaiser { get; set; }
+
+
+        private Game PlayHand(out Outcome GameOutCome, Game CurrentGame)
+        {
+            GameOutCome = new Outcome();
+
+            return CurrentGame;
+        }
+        
+        private List<Better> AskForBets(List<Player> PlayersAtTable)
+        {
+            RoundOfBets.Clear();
+
+            // Need to rewrite so that Round of Bets is checked before the player bets
+            while (RoundOfBetsComplete)
+            {
+                PlayersAtTable.ForEach(p => RoundOfBets.Add(PlayersBet(p)));
+            }
+            return RoundOfBets;
+        }
+
+        private Better PlayersBet(Player CurrentPlayer)
+        {
+            Better CurrentBetter = new Better{Player = CurrentPlayer, Bet = 0};
+            return CurrentBetter;
+        }
+
+        private void IsRoundOfBetsComplete(Player NextBetter)
+        {
+            if (RoundOfBets.FindAll(p => p.HasFolded == false).Count() == 1)
+            {
+                RoundOfBetsComplete = true;
+                return;
+            }
+
+            if (NextBetter == LastRaiser.Player)
+            {
+                RoundOfBetsComplete = true;
+                return;
+            }
+
+            RoundOfBetsComplete = false;
+
+        }
+
     }
 }
