@@ -86,10 +86,10 @@ namespace CaribouTexasHoldem.Core.Tests
 
 
 			//Assert
-			Assert.AreEqual(currentPlayer1.Name, playersAtTable[0].Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer2.Name, playersAtTable[1].Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer3.Name, playersAtTable[2].Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer4.Name, playersAtTable[0].Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer1.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer2.Name, dealer.Table.Seats[1].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer3.Name, dealer.Table.Seats[2].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer4.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
 
 		}
 

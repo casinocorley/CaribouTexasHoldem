@@ -13,16 +13,16 @@ namespace CaribouTexasHoldem.Core
 		public Player PlayerWithButton { get; set; }
 
 
-		public void CallsNextPlayer()
+		public Player CallsNextPlayer()
 		{
-
+			return new Player();
 		}
-		public void GiveDealerButtonTo(int? index , Player? player)
+		public Player GiveDealerButtonTo(int? index)
 		{
-			if (index.HasValue != null)
+			if (index.HasValue != true)
 				PlayerWithButton = Table.Seats[index.Value].Player;
-			else if (player.HasValue == true)
-				PlayerWithButton = Table.Seats.Find(p => p.Player == player.Value).Player;
+			//else if (player.HasValue == true)
+			//	PlayerWithButton = Table.Seats.Find(p => p.Player == player.Value).Player;
 			else
 			{
 				if (Table.Seats.FindIndex(p => p.Player == PlayerWithButton) != Table.Seats.Count() - 1)
@@ -31,7 +31,8 @@ namespace CaribouTexasHoldem.Core
 			
 			if (PlayerWithButton == null)
 				PlayerWithButton = Table.Seats.FirstOrDefault().Player;
-			
+
+			return PlayerWithButton;
 		}
 	}
 }
