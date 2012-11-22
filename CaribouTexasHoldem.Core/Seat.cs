@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public class Player
-    {
-        public string Name { get; set; }
-    }
-
-    
+	public class Seat
+	{
+		public Player Player { get; set; }
+	}
 }
