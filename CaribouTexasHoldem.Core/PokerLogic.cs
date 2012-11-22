@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public class Better
+    public static class PokerLogic
     {
-        public Player Player { get; set; }
-        public int Bet { get; set; }
-        public bool HasFolded { get; set; }
+        public static List<Card> DetermineBestFiveCardHand(List<Card> theHand)
+        {
 
+
+
+            return new List<Card>();
+        }
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="GameSettingsTests\NumOfSeatsTests.cs" />
     <Compile Include="TexasHoldemGameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PokerLogicTests.cs" />
     <Compile Include="WhiteBoard.cs" />
   </ItemGroup>
   <ItemGroup>
