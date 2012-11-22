@@ -42,12 +42,14 @@
     <Compile Include="Better.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Check.cs" />
+    <Compile Include="Dealer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="IGameSettings.cs" />
     <Compile Include="Outcome.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PokerLogic.cs" />
+    <Compile Include="Seat.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TexasHoldemGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
