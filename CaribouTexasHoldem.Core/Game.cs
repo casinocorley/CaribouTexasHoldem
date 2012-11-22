@@ -37,10 +37,11 @@ namespace CaribouTexasHoldem.Core
         private Better PlayersBet(Player CurrentPlayer)
         {
             Better CurrentBetter = new Better { Player = CurrentPlayer, Bet = 0 };
+            //CurrentBetter.Player.PlayerPlacesBet
             return CurrentBetter;
         }
 
-        private void IsRoundOfBetsComplete(Player NextBetter)
+        public void IsRoundOfBetsComplete(Player NextBetter)
         {
             if (RoundOfBets.FindAll(p => p.HasFolded == false).Count() == 1)
             {
@@ -55,7 +56,6 @@ namespace CaribouTexasHoldem.Core
             }
 
             RoundOfBetsComplete = false;
-
         }
     }
 }
