@@ -48,6 +48,7 @@
     <Compile Include="IGameSettings.cs" />
     <Compile Include="Outcome.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerAction.cs" />
     <Compile Include="PokerLogic.cs" />
     <Compile Include="Seat.cs" />
     <Compile Include="Table.cs" />

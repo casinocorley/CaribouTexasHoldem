@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-	public class Dealer
+	public class Dealer : Game
 	{
 		public Player CurrentDealer { get; set; }
 		public Table Table { get; set; }
@@ -22,6 +22,8 @@ namespace CaribouTexasHoldem.Core
 			else if (Table.Seats.Count == Table.Seats.FindIndex(s => s.Player == CurrentPlayer) + 1)
 				CurrentPlayer = Table.Seats[0].Player;
 			else CurrentPlayer = Table.Seats[Table.Seats.FindIndex(s => s.Player == CurrentPlayer) + 1].Player;
+
+			AskForAction();
 
 			return CurrentPlayer;
 		}
@@ -39,6 +41,10 @@ namespace CaribouTexasHoldem.Core
 				PlayerWithButton = Table.Seats.FirstOrDefault().Player;
 
 			return PlayerWithButton;
+		}
+		public void AskForAction()
+		{
+			CurrentPlayer.TakesAction(LastRaiser);
 		}
 	}
 }

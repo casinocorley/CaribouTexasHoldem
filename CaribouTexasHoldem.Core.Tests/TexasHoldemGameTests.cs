@@ -62,7 +62,7 @@ namespace CaribouTexasHoldem.Core.Tests
 		}
 
 		[TestMethod]
-		public void WhenAskingForPlayersBet()
+		public void WhenAskingForNextPlayer()
 		{
 			//Arrange			
 			Dealer dealer = new Dealer{
@@ -95,6 +95,48 @@ namespace CaribouTexasHoldem.Core.Tests
 			Assert.AreEqual(currentPlayer6.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
 			Assert.AreEqual(currentPlayer7.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
 			Assert.AreEqual(currentPlayer8.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
+
+		}
+
+		[TestMethod]
+		public void WhenAskingForNextPlayerAndBet()
+		{
+			//Arrange			
+			Dealer dealer = new Dealer
+			{
+				Table = new Table
+				{
+					Seats = new List<Seat>{
+						new Seat { Player = new Player{Name = "Player1", CheckOverride = true} },
+						new Seat { Player = new Player{Name = "Player2", CheckOverride = true} },
+						new Seat { Player = new Player{Name = "Player3", BetOverride = 10} },
+						new Seat { Player = new Player{Name = "Player4", FoldOverride = true} }
+					}
+				}
+			};
+
+			////Act
+			Player currentPlayer1 = dealer.CallsNextPlayer();
+			Player currentPlayer2 = dealer.CallsNextPlayer();
+			Player currentPlayer3 = dealer.CallsNextPlayer();
+			Player currentPlayer4 = dealer.CallsNextPlayer();
+
+
+			//Assert
+			//Are the players bets correct
+			Assert.AreEqual(currentPlayer1.Bet == 0, "second player's bet is 0");
+			Assert.AreEqual(currentPlayer1.Check == true, "second player checks");
+			Assert.AreEqual(currentPlayer1.Fold == false, "second player doesn't fold");
+			Assert.AreEqual(currentPlayer2.Bet == 0, "third player's bet is 0");
+			Assert.AreEqual(currentPlayer2.Check == true, "third player checks");
+			Assert.AreEqual(currentPlayer2.Fold == false, "third player doesn't fold");
+			Assert.AreEqual(currentPlayer3.Bet == 10, "fourth player bets 10");
+			Assert.AreEqual(currentPlayer3.Check == false, "fourth player doesn't check");
+			Assert.AreEqual(currentPlayer3.Fold == false, "forth player doesn't fold");
+			Assert.AreEqual(currentPlayer4.Bet == 0, "first player doesn't bet");
+			Assert.AreEqual(currentPlayer4.Check == false, "first player doesn't check");
+			Assert.AreEqual(currentPlayer4.Fold == true, "first player folds");
+
 		}
 
 	}
