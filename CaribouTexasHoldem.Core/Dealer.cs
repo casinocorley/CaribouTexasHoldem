@@ -12,7 +12,6 @@ namespace CaribouTexasHoldem.Core
 		public Table Table { get; set; }
 		public Player PlayerWithButton { get; set; }
 		public Player CurrentPlayer { get; set; }
-		public List<Player> PlayersAtTable { get; set; }
 
 
 		public Player CallsNextPlayer()

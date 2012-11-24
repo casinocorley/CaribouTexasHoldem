@@ -80,14 +80,21 @@ namespace CaribouTexasHoldem.Core.Tests
 			Player currentPlayer2 = dealer.CallsNextPlayer();
 			Player currentPlayer3 = dealer.CallsNextPlayer();
 			Player currentPlayer4 = dealer.CallsNextPlayer();
+			Player currentPlayer5 = dealer.CallsNextPlayer();
+			Player currentPlayer6 = dealer.CallsNextPlayer();
+			Player currentPlayer7 = dealer.CallsNextPlayer();
+			Player currentPlayer8 = dealer.CallsNextPlayer();
 
 
 			//Assert
-			Assert.AreEqual(currentPlayer1.Name, dealer.Table.Seats[1].Player.Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer2.Name, dealer.Table.Seats[2].Player.Name, "Second Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer3.Name, dealer.Table.Seats[3].Player.Name, "Third Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer4.Name, dealer.Table.Seats[0].Player.Name, "Fourth Better is chosen by dealer");
-
+			Assert.AreEqual(currentPlayer1.Name, dealer.Table.Seats[1].Player.Name, "Second Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer2.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer3.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer4.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer5.Name, dealer.Table.Seats[1].Player.Name, "Second Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer6.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer7.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer8.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
 		}
 
 	}
