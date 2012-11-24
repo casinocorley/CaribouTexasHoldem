@@ -74,10 +74,7 @@ namespace CaribouTexasHoldem.Core.Tests
 						new Seat { Player = new Player{Name = "Player4"} }
 				}}
 			};
-			//dealer.GiveDealerButtonTo(2);
-			//dealer.GiveDealerButtonTo(player1);
 
-			//dealer.PlayerWithButton();
 			////Act
 			Player currentPlayer1 = dealer.CallsNextPlayer();
 			Player currentPlayer2 = dealer.CallsNextPlayer();
@@ -86,29 +83,13 @@ namespace CaribouTexasHoldem.Core.Tests
 
 
 			//Assert
-			Assert.AreEqual(currentPlayer1.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer2.Name, dealer.Table.Seats[1].Player.Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer3.Name, dealer.Table.Seats[2].Player.Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer4.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer1.Name, dealer.Table.Seats[1].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer2.Name, dealer.Table.Seats[2].Player.Name, "Second Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer3.Name, dealer.Table.Seats[3].Player.Name, "Third Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer4.Name, dealer.Table.Seats[0].Player.Name, "Fourth Better is chosen by dealer");
 
 		}
 
-		//[TestMethod]
-		//public void WhenCheckingThatBettingIsComplete()
-		//{
-		////Arrange
-		//Game TestGame = new Game();
-		//List<Better> ListOfBetters = new List<Better>{
-		//new Better { Player = new Player(), Bet = 100, HasFolded = false},
-		//new Better { Player = new Player(), Bet = 50, HasFolded = true}
-		//};
-
-
-		//Act
-		//TestGame.IsRoundOfBetsComplete();
-
-
-		//Assert
 	}
 
 }
