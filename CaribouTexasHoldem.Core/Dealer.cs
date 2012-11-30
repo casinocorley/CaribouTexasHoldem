@@ -57,11 +57,12 @@ namespace CaribouTexasHoldem.Core
 		private Better CurrentPlayersAction(IPlayerAction PlayersAction)
 		{
 			if (PlayersAction is FoldPlayerAction)
-				return new Better { Player = CurrentPlayer, HasFolded = 1, Bet = 0 };
+				return new Better { Player = CurrentPlayer, HasFolded = true, Bet = 0 };
 			if (PlayersAction is CallPlayerAction)
-				return new Better { Player = CurrentPlayer, HasFolded = 0, Bet = LastRaiser.Bet };
+				return new Better { Player = CurrentPlayer, HasFolded = false, Bet = LastRaiser.Bet };
 			if (PlayersAction is BetPlayerAction)
-				return new Better { Player = CurrentPlayer, HasFolded = 0, Bet = (PlayersAction as BetPlayerAction).Bet};
+				return new Better { Player = CurrentPlayer, HasFolded = false, Bet = (PlayersAction as BetPlayerAction).Bet};
+			return new Better();
 		}
 	}
 }

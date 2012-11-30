@@ -80,25 +80,25 @@ namespace CaribouTexasHoldem.Core.Tests
 			};
 
 			////Act
-			Player currentPlayer1 = dealer.CallsNextPlayer();
-			Player currentPlayer2 = dealer.CallsNextPlayer();
-			Player currentPlayer3 = dealer.CallsNextPlayer();
-			Player currentPlayer4 = dealer.CallsNextPlayer();
-			Player currentPlayer5 = dealer.CallsNextPlayer();
-			Player currentPlayer6 = dealer.CallsNextPlayer();
-			Player currentPlayer7 = dealer.CallsNextPlayer();
-			Player currentPlayer8 = dealer.CallsNextPlayer();
+			Better currentPlayer1 = dealer.CallsNextPlayer();
+			Better currentPlayer2 = dealer.CallsNextPlayer();
+			Better currentPlayer3 = dealer.CallsNextPlayer();
+			Better currentPlayer4 = dealer.CallsNextPlayer();
+			Better currentPlayer5 = dealer.CallsNextPlayer();
+			Better currentPlayer6 = dealer.CallsNextPlayer();
+			Better currentPlayer7 = dealer.CallsNextPlayer();
+			Better currentPlayer8 = dealer.CallsNextPlayer();
 
 
 			////Assert
-			Assert.AreEqual(currentPlayer1.Name, dealer.Table.Seats[1].Player.Name, "Second Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer2.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer3.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer4.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer5.Name, dealer.Table.Seats[1].Player.Name, "Second Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer6.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer7.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
-			Assert.AreEqual(currentPlayer8.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer1.Player.Name, dealer.Table.Seats[1].Player.Name, "Second Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer2.Player.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer3.Player.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer4.Player.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer5.Player.Name, dealer.Table.Seats[1].Player.Name, "Second Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer6.Player.Name, dealer.Table.Seats[2].Player.Name, "Third Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer7.Player.Name, dealer.Table.Seats[3].Player.Name, "Fourth Better is chosen by dealer");
+			Assert.AreEqual(currentPlayer8.Player.Name, dealer.Table.Seats[0].Player.Name, "First Better is chosen by dealer");
 
 		}
 
@@ -120,18 +120,18 @@ namespace CaribouTexasHoldem.Core.Tests
 			};
 
 			////Act
-			Player currentPlayer1 = dealer.CallsNextPlayer();
-			Player currentPlayer2 = dealer.CallsNextPlayer();
-			Player currentPlayer3 = dealer.CallsNextPlayer();
-			Player currentPlayer4 = dealer.CallsNextPlayer();
+			Better currentPlayer1 = dealer.CallsNextPlayer();
+			Better currentPlayer2 = dealer.CallsNextPlayer();
+			Better currentPlayer3 = dealer.CallsNextPlayer();
+			Better currentPlayer4 = dealer.CallsNextPlayer();
 
 
 			//Assert
 			//Are the players bets correct
-			Assert.IsTrue(currentPlayer1.TakesAction() is CallPlayerAction, "First Player Calls");
-			Assert.IsTrue(currentPlayer2.TakesAction() is BetPlayerAction, "Second Player Calls");
-			Assert.IsTrue(currentPlayer3.TakesAction() is FoldPlayerAction, "Third Player Calls");
-			Assert.IsTrue(currentPlayer4.TakesAction() is CallPlayerAction, "Forth Player Calls");
+			Assert.IsTrue(currentPlayer1.Player.TakesAction() is CallPlayerAction, "First Player Calls");
+			Assert.IsTrue(currentPlayer2.Player.TakesAction() is BetPlayerAction, "Second Player Calls");
+			Assert.IsTrue(currentPlayer3.Player.TakesAction() is FoldPlayerAction, "Third Player Calls");
+			Assert.IsTrue(currentPlayer4.Player.TakesAction() is CallPlayerAction, "Forth Player Calls");
 
 		}
 

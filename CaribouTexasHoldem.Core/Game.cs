@@ -16,7 +16,7 @@ namespace CaribouTexasHoldem.Core
 		public Table MyTable { get; set; }
 		public Dealer MyDealer { get; set; }
 
-		public void Game()
+		public Game()
 		{
 			MyDealer = new Dealer { Table = MyTable };
 		}
