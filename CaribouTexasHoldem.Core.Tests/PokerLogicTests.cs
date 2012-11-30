@@ -53,5 +53,8 @@ namespace CaribouTexasHoldem.Core.Tests
             Assert.IsTrue(card4.rank == Rank.Queen, "qH should have the Queen rank");
 
         }
+
+        
+    
     }
 }

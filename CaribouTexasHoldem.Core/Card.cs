@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public enum Rank { Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King }
+    public enum Rank { Ace = 1, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King }
     public enum Suit { Spade, Heart, Diamond, Club }
-    public class Card
+    public class Card : IComparer<Card>
     {
         public Card(Rank theRank, Suit theSuit)
         {
@@ -95,6 +95,61 @@ namespace CaribouTexasHoldem.Core
 
                 }
             }
+        }
+
+
+        int IComparer<Card>.Compare(Card x, Card y)
+        {
+            if (x > y)
+            {
+                return 1;
+            }
+            else if (x < y)
+            {
+                return -1;
+            }
+            return 0;
+        }
+
+        public static bool operator <(Card c1, Card c2)
+        {
+            if (Convert.ToInt16(c1.rank) < Convert.ToInt16(c2.rank))
+            {
+                if (c2.rank == Rank.Ace) return false;
+                return true;
+            }
+            else if (Convert.ToInt16(c1.rank) > Convert.ToInt16(c2.rank))
+            {
+                if (c2.rank == Rank.Ace) return true;
+                return false;
+            }
+            //equal
+            return false;
+        }
+        public static bool operator >(Card c1, Card c2)
+        {
+            if (Convert.ToInt16(c1.rank) < Convert.ToInt16(c2.rank))
+            {
+                if (c1.rank == Rank.Ace) return true;
+                return false;
+            }
+            else if (Convert.ToInt16(c1.rank) > Convert.ToInt16(c2.rank))
+            {
+                if (c2.rank == Rank.Ace) return false;
+                return true;
+            }
+            //equal
+            return false;
+        }
+        public static bool operator ==(Card c1, Card c2)
+        {
+            if (c1.rank == c2.rank) return true;
+            return false;
+        }
+        public static bool operator !=(Card c1, Card c2)
+        {
+            if (c1.rank == c2.rank) return false;
+            return true;
         }
     }
 }
