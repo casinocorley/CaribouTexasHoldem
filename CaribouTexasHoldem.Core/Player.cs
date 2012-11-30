@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaribouTexasHoldem.Core.PlayerActions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,21 +7,22 @@ using System.Threading.Tasks;
 
 namespace CaribouTexasHoldem.Core
 {
-    public class Player : PlayerAction
+    public class Player
     {
         public string Name { get; set; }
-
-		public bool FoldOverride { get; set; }
-		public bool CheckOverride { get; set; }
-		public int BetOverride { get; set; }
-
-		public void TakesAction()
+		
+		public IPlayerAction TakesAction()
 		{
-			if (FoldOverride == true)
-				Fold = true;
-			else if (CheckOverride == true)
-				Check = true;
-			else Bet = BetOverride;
+			//if (FoldOverride == true)
+			//	Fold = true;
+			//else if (CheckOverride == true)
+			//	Check = true;
+			//else Bet = BetOverride;
+
+			IPlayerAction myActionC = new CallPlayerAction();
+			IPlayerAction myActionB = new BetPlayerAction();
+			IPlayerAction myActionF = new FoldPlayerAction();
+			return myActionC;
 		}
     }
 

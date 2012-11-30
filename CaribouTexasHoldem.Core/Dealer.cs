@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaribouTexasHoldem.Core.PlayerActions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,9 +45,9 @@ namespace CaribouTexasHoldem.Core
 
 			return PlayerWithButton;
 		}
-		public void AskForAction()
+		public IPlayerAction AskForAction()
 		{
-			CurrentPlayer.TakesAction();
+			return CurrentPlayer.TakesAction();
 		}
 	}
 }

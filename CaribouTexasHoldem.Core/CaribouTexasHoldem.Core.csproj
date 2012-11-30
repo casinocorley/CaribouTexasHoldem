@@ -39,16 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlayerActions\IPlayerAction.cs" />
+    <Compile Include="PlayerActions\BetPlayerAction.cs" />
     <Compile Include="Better.cs" />
+    <Compile Include="PlayerActions\CallPlayerAction.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Check.cs" />
     <Compile Include="Dealer.cs" />
+    <Compile Include="PlayerActions\FoldPlayerAction.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="IGameSettings.cs" />
     <Compile Include="Outcome.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerAction.cs" />
     <Compile Include="PokerLogic.cs" />
     <Compile Include="Seat.cs" />
     <Compile Include="Table.cs" />
@@ -56,6 +59,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommonGameSettings.cs" />
     <Compile Include="Winner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
