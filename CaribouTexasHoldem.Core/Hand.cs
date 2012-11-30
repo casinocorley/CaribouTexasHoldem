@@ -8,11 +8,21 @@ namespace CaribouTexasHoldem.Core
 {
     public class Hand : List<Card>
     {
-        public List<Card> HeyGimmeTheBestFiveCards
+        private List<Card> _myHand;
+        public List<Card> MyHand
+        {
+            get {
+                return _myHand.OrderBy(t => t.ShortHandRank).ToList();
+            }
+            set { _myHand = value; }
+        }
+
+
+        public Hand GimmeTheBestFiveCards
         {
             get
             {
-                return new List<Card>();
+                return new Hand();
             }
         }
     }
