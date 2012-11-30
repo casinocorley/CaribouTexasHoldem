@@ -8,5 +8,6 @@ namespace CaribouTexasHoldem.Core.PlayerActions
 {
 	public class BetPlayerAction : IPlayerAction
 	{
+		public int Bet { get; set; }
 	}
 }

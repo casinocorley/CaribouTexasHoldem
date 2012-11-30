@@ -13,24 +13,30 @@ namespace CaribouTexasHoldem.Core
         public bool RoundOfBetsComplete { get; set; }
         public List<Better> Pot { get; set; }
         public Better LastRaiser { get; set; }
+		public Table MyTable { get; set; }
+		public Dealer MyDealer { get; set; }
 
-
-        private Game PlayHand(out Outcome GameOutCome, Game CurrentGame)
-        {
-            GameOutCome = new Outcome();
-
-            return CurrentGame;
-        }
+		public void Game()
+		{
+			MyDealer = new Dealer { Table = MyTable };
+		}
 
         private List<Better> AskForBets(List<Player> PlayersAtTable)
         {
             RoundOfBets.Clear();
+			Better CurrentBetter;
+			if (MyDealer.CurrentDealer == null)
+				MyDealer.GiveDealerButtonTo(null);
 
-            // Need to rewrite so that Round of Bets is checked before the player bets
-            while (RoundOfBetsComplete)
-            {
-                PlayersAtTable.ForEach(p => RoundOfBets.Add(PlayersBet(p)));
-            }
+			while (MyDealer.NextPlayer().Player != LastRaiser.Player)
+			{
+				CurrentBetter = MyDealer.CallsNextPlayer();
+				if (CurrentBetter.Bet > LastRaiser.Bet)
+					LastRaiser = CurrentBetter;
+				RoundOfBets.Add(CurrentBetter);
+				
+			}
+			
             return RoundOfBets;
         }
 

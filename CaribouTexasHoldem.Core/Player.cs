@@ -11,7 +11,7 @@ namespace CaribouTexasHoldem.Core
     {
         public string Name { get; set; }
 		
-		public IPlayerAction TakesAction()
+		public virtual IPlayerAction TakesAction()
 		{
 			//if (FoldOverride == true)
 			//	Fold = true;

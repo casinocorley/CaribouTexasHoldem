@@ -13,9 +13,9 @@ namespace CaribouTexasHoldem.Core
 		public Table Table { get; set; }
 		public Player PlayerWithButton { get; set; }
 		public Player CurrentPlayer { get; set; }
-
-
-		public Player CallsNextPlayer()
+		public Better LastRaiser { get; set; }
+		
+		public Better CallsNextPlayer()
 		{
 			if (PlayerWithButton == null) PlayerWithButton = GiveDealerButtonTo(null);
 
@@ -26,9 +26,7 @@ namespace CaribouTexasHoldem.Core
 			else 
 				CurrentPlayer = Table.Seats[Table.Seats.FindIndex(s => s.Player == CurrentPlayer) + 1].Player;
 
-			AskForAction();
-
-			return CurrentPlayer;
+			return CurrentPlayersAction(AskForAction());
 		}
 		public Player GiveDealerButtonTo(int? index)
 		{
@@ -45,9 +43,25 @@ namespace CaribouTexasHoldem.Core
 
 			return PlayerWithButton;
 		}
+		public Better NextPlayer()
+		{
+			Better SaveMyPlayer = new Better { Player = CurrentPlayer };
+			Better NextPlayer = CallsNextPlayer();
+			CurrentPlayer = SaveMyPlayer.Player;
+			return NextPlayer;
+		}
 		public IPlayerAction AskForAction()
 		{
 			return CurrentPlayer.TakesAction();
+		}
+		private Better CurrentPlayersAction(IPlayerAction PlayersAction)
+		{
+			if (PlayersAction is FoldPlayerAction)
+				return new Better { Player = CurrentPlayer, HasFolded = 1, Bet = 0 };
+			if (PlayersAction is CallPlayerAction)
+				return new Better { Player = CurrentPlayer, HasFolded = 0, Bet = LastRaiser.Bet };
+			if (PlayersAction is BetPlayerAction)
+				return new Better { Player = CurrentPlayer, HasFolded = 0, Bet = (PlayersAction as BetPlayerAction).Bet};
 		}
 	}
 }
