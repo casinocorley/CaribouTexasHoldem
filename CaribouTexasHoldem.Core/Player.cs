@@ -14,7 +14,7 @@ namespace CaribouTexasHoldem.Core
 		public bool CheckOverride { get; set; }
 		public int BetOverride { get; set; }
 
-		public void TakesAction(Better LastRaiser)
+		public void TakesAction()
 		{
 			if (FoldOverride == true)
 				Fold = true;

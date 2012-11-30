@@ -11,17 +11,17 @@ namespace CaribouTexasHoldem.Core
 		public bool Fold {
 			get
 			{
-				return Fold;
+				return fold;
 			}
 			set
 			{
 				if (value == true)
 				{
-					Fold = value;
-					Check = false;
-					Bet = 0;
+					fold = value;
+					check = false;
+					bet = 0;
 				}
-				else Fold = value;
+				else fold = value;
 			} 
 		}		
 
@@ -29,31 +29,34 @@ namespace CaribouTexasHoldem.Core
 		{
 			get
 			{
-				return Check;
+				return check;
 			}
 			set
 			{
 				if (value == true)
 				{
-					Check = value;
-					Fold = false;
-					Bet = 0;
+					check = value;
+					fold = false;
+					bet = 0;
 				}
-				else Check = value;
+				else check = value;
 			}
 		}
 
 		public int Bet 
 		{
-			get { return Bet; }
+			get { return bet; }
 			set
 			{
-				Bet = value;
-				Fold = false;
-				Check = false;
+				bet = value;
+				fold = false;
+				check = false;
 			}
 		}
 
+		private bool fold;
+		private bool check;
+		private int bet;
 		
 	}
 }
