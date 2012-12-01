@@ -66,18 +66,7 @@ namespace CaribouTexasHoldem.Core.Tests
 		public void WhenAskingForNextPlayer()
 		{
 			//Arrange			
-			Dealer dealer = new Dealer
-			{
-				Table = new Table
-				{
-					Seats = new List<Seat>{
-						new Seat { Player = new Player{Name = "Player1"} },
-						new Seat { Player = new Player{Name = "Player2"} },
-						new Seat { Player = new Player{Name = "Player3"} },
-						new Seat { Player = new Player{Name = "Player4"} }
-				}
-				}
-			};
+			Dealer dealer = SimpleDealerAndTable();
 
 			////Act
 			Better currentPlayer1 = dealer.CallsNextPlayer();
@@ -106,18 +95,7 @@ namespace CaribouTexasHoldem.Core.Tests
 		public void WhenAskingForNextPlayerAndBet()
 		{
 			//Arrange			
-			var dealer = new Dealer
-			{
-				Table = new Table
-				{
-					Seats = new List<Seat>{
-						new Seat { Player = new CallingPlayer{Name = "player1"} },
-						new Seat { Player = new CallingPlayer{Name = "player2"} },
-						new Seat { Player = new BettingPlayer{Name = "player3"} },
-						new Seat { Player = new FoldingPlayer{Name = "player4"} }
-					}
-				}
-			};
+			var dealer = DealerWithSimpleTable();
 
 			////Act
 			Better currentPlayer1 = dealer.CallsNextPlayer();
@@ -133,6 +111,55 @@ namespace CaribouTexasHoldem.Core.Tests
 			Assert.IsTrue(currentPlayer3.Player.TakesAction() is FoldPlayerAction, "Third Player Calls");
 			Assert.IsTrue(currentPlayer4.Player.TakesAction() is CallPlayerAction, "Forth Player Calls");
 
+		}
+
+		public Dealer SimpleDealerAndTable()
+		{
+			return new Dealer
+			{
+				Table = new Table
+				{
+					Seats = new List<Seat>{
+						new Seat { Player = new Player{Name = "Player1"} },
+						new Seat { Player = new Player{Name = "Player2"} },
+						new Seat { Player = new Player{Name = "Player3"} },
+						new Seat { Player = new Player{Name = "Player4"} }
+				}
+				}
+			};
+		}
+
+		public Dealer DealerWithSimpleTable()
+		{
+			return new Dealer
+			{
+				Table = new Table
+				{
+					Seats = new List<Seat>{
+						new Seat { Player = new CallingPlayer{Name = "player1"} },
+						new Seat { Player = new CallingPlayer{Name = "player2"} },
+						new Seat { Player = new BettingPlayer{Name = "player3"} },
+						new Seat { Player = new FoldingPlayer{Name = "player4"} }
+					}
+				}
+			};
+		}
+
+		public Dealer DealerWithLastRaiser()
+		{
+			return new Dealer
+			{
+				Table = new Table
+				{
+					Seats = new List<Seat>{
+						new Seat { Player = new CallingPlayer{Name = "player1"} },
+						new Seat { Player = new CallingPlayer{Name = "player2"} },
+						new Seat { Player = new BettingPlayer{Name = "player3"} },
+						new Seat { Player = new FoldingPlayer{Name = "player4"} }
+					}
+				},
+				LastRaiser = new Better { Player = new Player(), Bet = 0, HasFolded = false }
+			};
 		}
 
 		public class FoldingPlayer : Player
@@ -157,6 +184,30 @@ namespace CaribouTexasHoldem.Core.Tests
 			}
 		}
 
+		[TestMethod]
+		public void NextPlayer()
+		{
+			//Arrange
+			Dealer CurrentDealer = DealerWithLastRaiser();
+
+			//Act
+			Better nextPlayer1 = CurrentDealer.NextPlayer();
+			Better currentPlayer1 = CurrentDealer.CallsNextPlayer();
+			Better nextPlayer2 = CurrentDealer.NextPlayer();
+			Better currentPlayer2 = CurrentDealer.CallsNextPlayer();
+			Better nextPlayer3 = CurrentDealer.NextPlayer();
+			Better currentPlayer3 = CurrentDealer.CallsNextPlayer();
+			Better nextPlayer4 = CurrentDealer.NextPlayer();
+			Better currentPlayer4 = CurrentDealer.CallsNextPlayer();
+			Better nextPlayer5 = CurrentDealer.NextPlayer();
+
+			//Assert
+			Assert.AreEqual(nextPlayer1, null, "The first Next Player should be null");
+			Assert.AreEqual(nextPlayer2.Player, currentPlayer2.Player, "The NextPlayer after player1 should be player2");
+			Assert.AreEqual(nextPlayer3.Player, currentPlayer3.Player, "The NextPlayer after player2 should be player3");
+			Assert.AreEqual(nextPlayer4.Player, currentPlayer4.Player, "The NextPlayer after player3 should be player4");
+			Assert.AreEqual(nextPlayer5.Player, currentPlayer1.Player, "The NextPlayer after player4 should be player1");
+		}
 	}
 
 }

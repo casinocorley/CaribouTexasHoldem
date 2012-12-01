@@ -45,6 +45,9 @@ namespace CaribouTexasHoldem.Core
 		}
 		public Better NextPlayer()
 		{
+			if (CurrentPlayer == null)
+				return null;
+
 			Better SaveMyPlayer = new Better { Player = CurrentPlayer };
 			Better NextPlayer = CallsNextPlayer();
 			CurrentPlayer = SaveMyPlayer.Player;
